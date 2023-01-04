@@ -48,7 +48,7 @@ class AppConfig:
         """App configuration object used for managing kafka settings."""
 
         bootstrap = environ.var(
-            "http://kafka-bootstrap:9092", help="The kafka bootstrap server URL"
+            "kafka-bootstrap:9092", help="The kafka bootstrap server URL"
         )
 
         inference_topic = environ.var(
