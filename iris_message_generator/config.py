@@ -33,27 +33,44 @@ class AppConfig:
 
     @environ.config
     class Data:
-        file = environ.var("../data/iris.csv", help="The file containing the data to load.")
+        """App configuration for the data source."""
+
+        file = environ.var(
+            "../data/iris.csv",
+            converter=Path,
+            help="The file containing the data to load.",
+        )
 
     @environ.config
     class Kafka:
         """App configuration object used for managing kafka settings."""
 
-        bootstrap = environ.var("http://kafka-bootstrap:9092", help="The kafka bootstrap server URL")
+        bootstrap = environ.var(
+            "http://kafka-bootstrap:9092", help="The kafka bootstrap server URL"
+        )
 
-        inference_topic = environ.var("iris-inference", help="The topic to publish messages contain data to perform an inference on.")
+        inference_topic = environ.var(
+            "iris-inference",
+            help="The topic to publish messages contain data to perform an inference on.",
+        )
 
-        real_results_topic = environ.var("iris-real-results", help="The topic to publish messages container the real world classification data.")
+        real_results_topic = environ.var(
+            "iris-real-results",
+            help="The topic to publish messages container the real world classification data.",
+        )
 
     kafka = environ.group(Kafka)
 
     @environ.config
     class Message:
-        """App configuration object used for managing"""
+        """App configuration object used for managing message generator"""
 
-        wait_time = environ.var(10, help="The frequency in seconds that new messages will be generated.")
+        wait_time = environ.var(
+            10, help="The frequency in seconds that new messages will be generated."
+        )
 
     message = environ.group(Message)
+
 
 app_cfg = environ.to_config(AppConfig)
 
