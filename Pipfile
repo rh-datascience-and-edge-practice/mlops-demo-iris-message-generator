@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 environ-config = "*"
 python-dotenv = "*"
+pandas = "*"
 
 [dev-packages]
 flake8 = "*"
