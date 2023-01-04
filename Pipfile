@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+environ-config = "*"
+python-dotenv = "*"
+
+[dev-packages]
+flake8 = "*"
+flake8-import-order = "*"
+flake8-docstrings = "*"
+flake8-builtins = "*"
+flake8-bandit = "*"
+tox = "*"
+pytest = "*"
+tox-pipenv = "*"
+jupyter = "*"
+requests = "*"
+pytest-mock = "*"
+
+[requires]
+python_version = "3.9"
