@@ -7,5 +7,5 @@
 !app.py
 !Pipfile
 !Pipfile.lock
-!iris_inference_service/
-!models/
+!iris_message_generator/
+!data/
