@@ -2,7 +2,7 @@
 
 echo "---> Container Environment Variables"
 # execute the helper script to display env vars
-python iris_inference_service/config.py
+python iris_message_generator/config.py
 
 echo "---> Continuing standard startup script"
 exec /usr/libexec/s2i/run
