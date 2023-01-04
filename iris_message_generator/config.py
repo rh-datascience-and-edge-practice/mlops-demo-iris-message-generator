@@ -36,7 +36,7 @@ class AppConfig:
         """App configuration for the data source."""
 
         file = environ.var(
-            "../data/iris.csv",
+            "./data/iris.csv",
             converter=Path,
             help="The file containing the data to load.",
         )
