@@ -7,5 +7,4 @@ from iris_message_generator import main
 if __name__ == "__main__":
 
     logging.basicConfig(level=app_cfg.log.level)
-    main.load_data()
-    main.message_loop()
+    main.main()
