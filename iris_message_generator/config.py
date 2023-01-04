@@ -41,6 +41,8 @@ class AppConfig:
             help="The file containing the data to load.",
         )
 
+    data = environ.group(Data)
+
     @environ.config
     class Kafka:
         """App configuration object used for managing kafka settings."""
