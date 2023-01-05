@@ -1,18 +1,17 @@
+"""Message generator application to publish messages to kafka."""
 import copy
+import json
 import logging
 import os
 import time
 import typing
+from pathlib import Path
 
 from iris_message_generator.config import app_cfg
 
-import json
+from kafka import KafkaProducer
 
 import pandas as pd
-
-from pathlib import Path
-
-from kafka import KafkaProducer
 
 
 def load_data(datafile: typing.Union[str, Path] = app_cfg.data.file):
