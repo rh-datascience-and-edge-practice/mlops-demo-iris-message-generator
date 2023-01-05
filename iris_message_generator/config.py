@@ -65,7 +65,7 @@ class AppConfig:
 
     @environ.config
     class Message:
-        """App configuration object used for managing message generator"""
+        """App configuration object used for managing message generator."""
 
         wait_time = environ.var(
             10, help="The frequency in seconds that new messages will be generated."
