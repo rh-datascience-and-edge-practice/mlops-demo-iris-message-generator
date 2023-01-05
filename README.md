@@ -1,3 +1,5 @@
 # MLOps Demo Message Generator
 
-[![Container Image on Quay](https://quay.io/repository/rhiap/mlops-demo-message-generator/status "Container Image  on Quay")](https://quay.io/repository/rhiap/mlops-demo-message-generator)
+[![Build Image](https://github.com/rh-intelligent-application-practice/mlops-demo-message-generator-python/actions/workflows/build-image.yml/badge.svg)](https://github.com/rh-intelligent-application-practice/mlops-demo-message-generator-python/actions/workflows/build-image.yml)
+
+[![GitHub](https://img.shields.io/badge/GitHub-repo-blue.svg)](https://github.com/rh-intelligent-application-practice/mlops-demo-message-generator-python) [![Quay.io](https://img.shields.io/badge/Quay.io-image-blue.svg)](https://quay.io/repository/rhiap/mlops-demo-message-generator)
