@@ -18,7 +18,7 @@ from kafka import KafkaProducer
 def load_data(datafile: typing.Union[str, Path] = app_cfg.data.file):
     """Load data from local filesystem."""
     logging.info(f"Loading data from csv: {datafile}")
-    
+
     data = pd.read_csv(datafile)
     return data
 
@@ -65,7 +65,7 @@ def message_loop(
     producer: KafkaProducer,
     wait_time: int = app_cfg.message.wait_time,
 ):
-    """Main loop to iterate over data to produce messages."""
+    """Loop to iterate over data to produce messages."""
     logging.info("Starting message generation.")
 
     # repeat the loop forever
@@ -83,7 +83,7 @@ def message_loop(
 
 
 def main():
-    """Main entrypoint for starting application."""
+    """Entrypoint for starting application."""
     data = load_data()
     producer = kafka_producer()
     message_loop(data, producer)
