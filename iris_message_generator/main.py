@@ -59,12 +59,14 @@ def message_loop(
     wait_time: int = app_cfg.message.wait_time,
 ):
 
+    # repeat the loop forever
     while wait_time != 0:
+        # loop through all of the data
         for index, row in data.iterrows():
             logging.info("writing message")
             iris_message, results_message = iris_messages(data, index)
             write_message(producer, app_cfg.kafka.inference_topic, iris_message)
-            write_message(producer, app_cfg.kafka.real_results_topic, iris_message)
+            write_message(producer, app_cfg.kafka.real_results_topic, results_message)
             time.sleep(wait_time)
 
     # Hack to keep container running even when no messages are being generated
@@ -74,7 +76,6 @@ def message_loop(
 def main():
     data = load_data()
     producer = kafka_producer()
-    producer = "hello"
     message_loop(data, producer)
 
 
