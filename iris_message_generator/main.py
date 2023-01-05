@@ -16,13 +16,17 @@ from kafka import KafkaProducer
 
 
 def load_data(datafile: typing.Union[str, Path] = app_cfg.data.file):
+    """Load data from local filesystem."""
     logging.info(f"Loading data from csv: {datafile}")
+    
     data = pd.read_csv(datafile)
     return data
 
 
 def kafka_producer(bootstrap: str = app_cfg.kafka.bootstrap):
+    """Connect to kafka and create a producer instance."""
     logging.info(f"Connecting to bootstrap server: {bootstrap}")
+
     producer = KafkaProducer(
         bootstrap_servers=bootstrap,
         value_serializer=lambda x: json.dumps(x).encode("utf-8"),
@@ -31,11 +35,14 @@ def kafka_producer(bootstrap: str = app_cfg.kafka.bootstrap):
 
 
 def write_message(producer: KafkaProducer, topic: str, message: str):
+    """Write messages to kafka."""
     logging.info(f"Publishing message: {message} on Topic: {topic}")
+
     producer.send(topic=topic, value=message)
 
 
 def iris_messages(data: pd.DataFrame, row: int):
+    """Produce message objects to be sent to kafka."""
     classification_data = data.drop(
         ["sepalLength", "sepalWidth", "petalLength", "petalWidth"], axis=1
     )
@@ -58,6 +65,8 @@ def message_loop(
     producer: KafkaProducer,
     wait_time: int = app_cfg.message.wait_time,
 ):
+    """Main loop to iterate over data to produce messages."""
+    logging.info("Starting message generation.")
 
     # repeat the loop forever
     while wait_time != 0:
@@ -74,6 +83,7 @@ def message_loop(
 
 
 def main():
+    """Main entrypoint for starting application."""
     data = load_data()
     producer = kafka_producer()
     message_loop(data, producer)
