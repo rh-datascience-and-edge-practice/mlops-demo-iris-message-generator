@@ -78,7 +78,7 @@ def message_loop(
             time.sleep(wait_time)
 
     # Hack to keep container running even when no messages are being generated
-    os.system("tail -f /dev/null")
+    os.system("tail -f /dev/null")  # noqa: S605, S607
 
 
 def main():
