@@ -32,7 +32,7 @@ def kafka_producer(bootstrap: str = app_cfg.kafka.bootstrap):
 
 def write_message(producer: KafkaProducer, topic: str, message: str):
     logging.info(f"Publishing message: {message} on Topic: {topic}")
-    producer.send(topic = topic, value=message)
+    producer.send(topic=topic, value=message)
 
 
 def iris_messages(data: pd.DataFrame, row: int):
